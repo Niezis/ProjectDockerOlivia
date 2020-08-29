@@ -22,7 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::namespace('Oauth')->group(function () {
 
-    Route::get('{provider}', 'OauthController@redirectToProvider')->name('provider.redirect');
+    Route::get('login/{provider}', 'OauthController@redirectToProvider')->name('provider.redirect');
     Route::get('{provider}/callback', 'OauthController@handleCallbackProvider')->name('provider.callback');
 });
 
