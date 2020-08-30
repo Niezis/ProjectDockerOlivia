@@ -20,9 +20,20 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+// Oauth
 Route::namespace('Oauth')->group(function () {
 
     Route::get('login/{provider}', 'OauthController@redirectToProvider')->name('provider.redirect');
     Route::get('{provider}/callback', 'OauthController@handleCallbackProvider')->name('provider.callback');
 });
+
+// Create Category
+Route::get('categories/create', 'Category\CategoryController@create')->name('category.create');
+Route::post('categories/post', 'Category\CategoryController@store')->name('category.post');
+
+// Create Post
+Route::get('posts/create', 'Post\PostController@create')->name('post.create');
+Route::post('posts/post', 'Post\PostController@store')->name('post.post');
+
 
