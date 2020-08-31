@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{ route('category.post') }}">
+                    <form method="POST" action="{{ route('category.post') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -29,6 +29,29 @@
                                     </span>
                                 @enderror
                             </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="exampleFormControlFile1">{{ __('image') }}</label>
+
+                            <div class="col-md-6">
+
+                                <input name="image" type="file" class="form-control-file @error('image') is-invalid @enderror" name="image"  required autocomplete="image" id="exampleFormControlFile1" autofocus>
+
+                                @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="col-md-8 offset-md-4">
+                            <button type="submit" class="btn btn-dark">
+                                {{ __('Submit') }}
+                            </button>
                         </div>
 
                     </form>

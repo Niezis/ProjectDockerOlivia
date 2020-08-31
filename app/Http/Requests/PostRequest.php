@@ -27,7 +27,7 @@ class PostRequest extends FormRequest
             'name_video' => "required|string|max:25",
             "order" => "required|integer",
             "description" => 'max:255|string',
-            "video" => "required|max:20480"
+            "video" => "required|mimes:mp4,mkv|max:20480"
         ];
     }
 }
