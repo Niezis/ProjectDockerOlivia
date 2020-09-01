@@ -31,6 +31,8 @@ Route::namespace('Oauth')->group(function () {
 // Create Category
 Route::get('categories/create', 'Category\CategoryController@create')->name('category.create');
 Route::post('categories/post', 'Category\CategoryController@store')->name('category.post');
+Route::get('categories/index', 'Category\CategoryController@index')->name('category.index');
+Route::get('categories/show/{category}', 'Category\CategoryController@show')->name('category.show');
 
 // Create Post
 Route::get('posts/create', 'Post\PostController@create')->name('post.create');

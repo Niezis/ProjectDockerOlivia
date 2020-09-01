@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Category;
 
 use App\Category;
 use App\Http\Controllers\Controller;
+use App\Post;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -15,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::simplePaginate(1);
+        return view('category.index',compact('categories'));
     }
 
     /**
@@ -38,6 +40,7 @@ class CategoryController extends Controller
     {
         $validasi = $request->validate([
             'category' => "required|max:15",
+            "description" => "required|string",
             "image" => "required|mimes:png,jpg,jpeg|max:10240"
         ]);
 
@@ -48,7 +51,8 @@ class CategoryController extends Controller
 
         Category::create([
             'category' => $validasi['category'],
-            'image' => $image
+            'image' => $image,
+            'description' => $validasi['description']
         ]);
 
         return back()->with('success',"Category has been created");
@@ -60,9 +64,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
-        //
+        return Post::with('category')->where('category_id',$category->id)->get();
     }
 
     /**
