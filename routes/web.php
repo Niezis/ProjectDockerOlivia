@@ -12,6 +12,7 @@
 */
 
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -37,5 +38,6 @@ Route::get('categories/show/{category}', 'Category\CategoryController@show')->na
 // Create Post
 Route::get('posts/create', 'Post\PostController@create')->name('post.create');
 Route::post('posts/post', 'Post\PostController@store')->name('post.post');
+Route::get('/posts/show/{post}', 'Post\PostController@show')->name('post.show');
 
 

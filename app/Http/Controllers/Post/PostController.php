@@ -64,9 +64,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        //
+        $category = Category::with('posts')->where('id',$post->category_id)->first();
+        return view('post.show',compact('category','post'));
     }
 
     /**

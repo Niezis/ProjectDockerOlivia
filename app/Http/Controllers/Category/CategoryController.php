@@ -66,7 +66,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return Post::with('category')->where('category_id',$category->id)->get();
+        $categories = Category::with('posts')->where('id',$category->id)->first();
+        return view("category.show",compact('categories'));
     }
 
     /**
