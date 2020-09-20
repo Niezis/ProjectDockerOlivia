@@ -12,6 +12,10 @@
                         <div class="alert alert-success" role="alert">
                             {{ session('success') }}
                         </div>
+                    @elseif (session('danger'))
+                        <div class="alert alert-danger" role="alert">
+                            {{ session('danger') }}
+                        </div>
                     @endif
 
                     <form method="POST" action="{{ route('post.post') }}" enctype="multipart/form-data">
@@ -50,7 +54,6 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="form-group row">
                             <label for="order" class="col-md-4 col-form-label text-md-right">{{ __('Order') }}</label>
 

@@ -24,9 +24,10 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'name_video' => "required|string|max:25",
-            "order" => "required|integer",
-            "description" => 'max:255|string',
+            'name_video' => "required|string|max:25|unique:posts",
+            'category' => "required",
+            "order" => "required|integer|unique:posts",
+            "description" => 'required|max:255|string',
             "video" => "required|mimes:mp4,mkv|max:20480"
         ];
     }

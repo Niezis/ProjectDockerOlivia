@@ -28,16 +28,27 @@ Route::namespace('Oauth')->group(function () {
     Route::get('login/{provider}', 'OauthController@redirectToProvider')->name('provider.redirect');
     Route::get('{provider}/callback', 'OauthController@handleCallbackProvider')->name('provider.callback');
 });
+Route::middleware(['auth',"role:admin"])->group(function () {
 
-// Create Category
 Route::get('categories/create', 'Category\CategoryController@create')->name('category.create');
 Route::post('categories/post', 'Category\CategoryController@store')->name('category.post');
-Route::get('categories/index', 'Category\CategoryController@index')->name('category.index');
-Route::get('categories/show/{category}', 'Category\CategoryController@show')->name('category.show');
-
-// Create Post
 Route::get('posts/create', 'Post\PostController@create')->name('post.create');
 Route::post('posts/post', 'Post\PostController@store')->name('post.post');
-Route::get('/posts/show/{post}', 'Post\PostController@show')->name('post.show');
 
+});
 
+Route::middleware(['auth'])->group(function () {
+
+    // Create Category
+    Route::get('categories/index', 'Category\CategoryController@index')->name('category.index');
+    Route::get('categories/show/{category}', 'Category\CategoryController@show')->name('category.show');
+
+    // Create Post
+
+    Route::get('/posts/show/{post}', 'Post\PostController@show')->name('post.show');
+
+});
+
+Route::fallback(function () {
+    return abort(404);
+});

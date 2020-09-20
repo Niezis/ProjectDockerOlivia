@@ -39,13 +39,13 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validasi = $request->validate([
-            'category' => "required|max:15",
+            'category' => "required|max:15|unique:categories",
             "description" => "required|string",
             "image" => "required|mimes:png,jpg,jpeg|max:10240"
         ]);
 
         $file = $request->file('image');
-        $image = $file->storeAs('category/image',$file->getClientOriginalName());
+        $image = $file->store('category/image');
 
         $validasi['category'] = ucwords($validasi["category"]);
 

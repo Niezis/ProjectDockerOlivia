@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::get();
+        $categories = Category::with('posts')->get();
         return view('post.create',compact('categories'));
     }
 
@@ -40,8 +40,9 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
 
+
         $file = $request->file('video');
-        $video = $file->storeAs('learn/video',$file->getClientOriginalName());
+        $video = $file->store('learn/video');
 
         $request["name_video"] = ucwords($request["name_video"]);
         $request['description'] = ucfirst($request['description']);
