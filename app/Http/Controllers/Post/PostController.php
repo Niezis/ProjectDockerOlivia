@@ -53,9 +53,9 @@ class PostController extends Controller
             'category_id' => $request['category'],
             'slug' => Str::slug($request['name_video']),
             'description' => $request['description'],
-            'video' => $request['video']
-            'start' => $request['start']
-            'end' => $request['end']
+            'video' => $request['video'],
+            'start' => $request['start'],
+            'end' => $request['end'],
             //'video' => $video
         ]);
 
