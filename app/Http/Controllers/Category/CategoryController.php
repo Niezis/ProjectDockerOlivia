@@ -111,4 +111,11 @@ class CategoryController extends Controller
     {
         //
     }
+
+    public function delete(Category $category)
+    {
+        $category->delete();
+        return redirect()->route('category.index')
+        ->with('pesan',"Data berhasil dihapus");
+    }
 }

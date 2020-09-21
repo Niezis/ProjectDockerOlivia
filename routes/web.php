@@ -34,10 +34,14 @@ Route::get('categories/create', 'Category\CategoryController@create')->name('cat
 Route::post('categories/post', 'Category\CategoryController@store')->name('category.post');
 Route::get('categories/{category}/edit', 'Category\CategoryController@edit')->name('category.edit');
 Route::put('categories/{category}', 'Category\CategoryController@update')->name('category.update');
+Route::delete('categories/{category}/delete', 'Category\CategoryController@delete')->name('category.delete');
+
+
 Route::get('posts/create', 'Post\PostController@create')->name('post.create');
 Route::post('posts/post', 'Post\PostController@store')->name('post.post');
 Route::get('posts/{post}/edit', 'Post\PostController@edit')->name('post.edit');
 Route::put('posts/{post}', 'Post\PostController@update')->name('post.update');
+Route::delete('posts/{post}/delete', 'Post\PostController@delete')->name('post.delete');
 });
  
 Route::middleware(['auth'])->group(function () {

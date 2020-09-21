@@ -82,6 +82,7 @@ class PostController extends Controller
      */
     public function edit($post)
     {
+        $categories = Category::with('posts')->get();
         $result=Post::find($post);
         return view('post.edit', ['post'=>$result]);
     }
@@ -120,4 +121,12 @@ class PostController extends Controller
     {
         //
     }
+
+    public function delete(Post $post)
+    {
+        $post->delete();
+        return redirect()->route('post.index')
+        ->with('pesan',"Data berhasil dihapus");
+    }
+
 }
