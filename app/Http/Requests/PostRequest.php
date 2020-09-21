@@ -27,8 +27,10 @@ class PostRequest extends FormRequest
             'name_video' => "required|string|max:25|unique:posts",
             'category' => "required",
             "order" => "required|integer|unique:posts",
+            "start" => "required|integer",
+            "end" => "required|integer",
             "description" => 'required|max:255|string',
-            "video" => "required|mimes:mp4,mkv|max:20480"
+            "video" => "required|string|max:25|unique:posts",
         ];
     }
 }

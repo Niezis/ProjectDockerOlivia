@@ -32,7 +32,7 @@ Route::middleware(['auth',"role:admin"])->group(function () {
 
 Route::get('categories/create', 'Category\CategoryController@create')->name('category.create');
 Route::post('categories/post', 'Category\CategoryController@store')->name('category.post');
-Route::get('categories/{category}/edit', 'Category\CategoryController@edit')->name('mahasiswas.edit');
+Route::get('categories/{category}/edit', 'Category\CategoryController@edit')->name('category.edit');
 Route::put('categories/{category}', 'Category\CategoryController@update')->name('category.update');
 Route::get('posts/create', 'Post\PostController@create')->name('post.create');
 Route::post('posts/post', 'Post\PostController@store')->name('post.post');

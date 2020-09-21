@@ -76,9 +76,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($category)
     {
-        //
+        $result=Category::find($category);
+        return view('category.edit', ['category'=>$result]);
     }
 
     /**
@@ -88,11 +89,18 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $category)
     {
-        //
+        $validasi = $request->validate([
+            'category' => "required|max:15|unique:categories",
+            "description" => "required|string",
+            "image" => "required|mimes:png,jpg,jpeg|max:10240"
+        ]);
+        
+        Category::where('id', $category->id)->update($validasi);
+        $request->session()->flash('pesan',"Data berhasil diperbaharui");
+        return redirect()->route("category.show",compact('categories'));
     }
-
     /**
      * Remove the specified resource from storage.
      *
