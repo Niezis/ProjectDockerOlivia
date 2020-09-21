@@ -41,7 +41,7 @@ class PostController extends Controller
     {
 
 
-        $file = $request->file('video');
+        //$file = $request->file('video');
         //$video = $file->store('learn/video');
 
         $request["name_video"] = ucwords($request["name_video"]);
@@ -51,7 +51,7 @@ class PostController extends Controller
             'name_video' => $request["name_video"],
             'order' => $request['order'],
             'category_id' => $request['category'],
-            'slug' => Str::slug($request['name_video']),
+            //'slug' => Str::slug($request['name_video']),
             'description' => $request['description'],
             'video' => $request['video'],
             'start' => $request['start'],
@@ -80,9 +80,10 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($post)
     {
-        //
+        $result=Post::find($post);
+        return view('post.edit', ['post'=>$result]);
     }
 
     /**
@@ -92,9 +93,21 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $post)
     {
-        //
+        $validasi = $request->validate([
+            'name_video' => "required|string|max:25|unique:posts",
+            'category' => "required",
+            "order" => "required|integer|unique:posts",
+            "start" => "required|integer",
+            "end" => "required|integer",
+            "description" => 'required|max:255|string',
+            "video" => "required|string|max:50|unique:posts",
+        ]);
+        
+        Post::where('id', $post->id)->update($validasi);
+        $request->session()->flash('pesan',"Data berhasil diperbaharui");
+        return redirect()->route("post.show",compact('posts'));
     }
 
     /**

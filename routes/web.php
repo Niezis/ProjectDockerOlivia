@@ -36,6 +36,8 @@ Route::get('categories/{category}/edit', 'Category\CategoryController@edit')->na
 Route::put('categories/{category}', 'Category\CategoryController@update')->name('category.update');
 Route::get('posts/create', 'Post\PostController@create')->name('post.create');
 Route::post('posts/post', 'Post\PostController@store')->name('post.post');
+Route::get('posts/{post}/edit', 'Post\PostController@edit')->name('post.edit');
+Route::put('posts/{post}', 'Post\PostController@update')->name('post.update');
 });
  
 Route::middleware(['auth'])->group(function () {

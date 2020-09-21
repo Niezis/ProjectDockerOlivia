@@ -30,7 +30,7 @@ class PostRequest extends FormRequest
             "start" => "required|integer",
             "end" => "required|integer",
             "description" => 'required|max:255|string',
-            "video" => "required|string|max:25|unique:posts",
+            "video" => "required|string|max:50|unique:posts",
         ];
     }
 }
