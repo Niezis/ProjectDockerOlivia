@@ -142,6 +142,13 @@
                             </button>
                         </div>
                     </form>
+
+                    <form action="{{ route('post.delete', ['post' => $post->id]) }}"
+                        method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger ml-3">Hapus</button>
+                    </form>
                 </div>
             </div>
         </div>

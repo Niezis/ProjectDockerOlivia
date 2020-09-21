@@ -70,6 +70,13 @@
                         </div>
 
                     </form>
+
+                    <form action="{{ route('category.delete', ['category' => $category->id]) }}"
+                        method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-danger ml-3">Hapus</button>
+                    </form>
                 </div>
             </div>
         </div>
