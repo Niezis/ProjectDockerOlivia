@@ -36,6 +36,19 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="video" class="col-md-4 col-form-label text-md-right">{{ __('Link Video') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="video" type="text" class="form-control @error('video') is-invalid @enderror" name="video" value="{{ old('video') }}" required autocomplete="video" autofocus>
+
+                                @error('video')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="category" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
 
                             <div class="col-md-6">
@@ -67,6 +80,32 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="start" class="col-md-4 col-form-label text-md-right">{{ __('Time Start') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="start" min="0" type="number" class="form-control @error('start') is-invalid @enderror" name="start" value="{{ old('start') }}" required autocomplete="start" autofocus>
+
+                                @error('start')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="end" class="col-md-4 col-form-label text-md-right">{{ __('Time End') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="end" min="0" type="number" class="form-control @error('end') is-invalid @enderror" name="end" value="{{ old('end') }}" required autocomplete="end" autofocus>
+
+                                @error('end')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right" for="exampleFormControlTextarea1">{{ __('Description Video') }}</label>
@@ -82,7 +121,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        {{-- <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right" for="exampleFormControlFile1">{{ __('Video') }}</label>
 
                             <div class="col-md-6">
@@ -95,7 +134,7 @@
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="col-md-8 offset-md-4">
                             <button type="submit" class="btn btn-dark">

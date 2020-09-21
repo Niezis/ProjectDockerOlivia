@@ -42,7 +42,7 @@ class PostController extends Controller
 
 
         $file = $request->file('video');
-        $video = $file->store('learn/video');
+        //$video = $file->store('learn/video');
 
         $request["name_video"] = ucwords($request["name_video"]);
         $request['description'] = ucfirst($request['description']);
@@ -53,10 +53,13 @@ class PostController extends Controller
             'category_id' => $request['category'],
             'slug' => Str::slug($request['name_video']),
             'description' => $request['description'],
-            'video' => $video
+            'video' => $request['video']
+            'start' => $request['start']
+            'end' => $request['end']
+            //'video' => $video
         ]);
 
-        return back()->with('success',"Learing has been created");
+        return back()->with('success',"Post has been created");
     }
 
     /**

@@ -19,9 +19,10 @@ class CreatePostsTable extends Migration
             $table->string('name_video');
             $table->string('video');
             $table->integer('order')->unique();
+            $table->integer('start')->nullable();
+            $table->integer('end')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
-
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
