@@ -6,6 +6,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -44,8 +45,7 @@ class CategoryController extends Controller
             "image" => "required|mimes:png,jpg,jpeg|max:10240"
         ]);
 
-        $file = $request->file('image');
-        $image = $file->store('category/image');
+        $image = $request->file('image')->store('category/image');
 
         $validasi['category'] = ucwords($validasi["category"]);
 
@@ -78,8 +78,8 @@ class CategoryController extends Controller
      */
     public function edit($category)
     {
-        $result=Category::find($category);
-        return view('category.edit', ['category'=>$result]);
+        $category=Category::find($category);
+        return view('category.edit', compact('category'));
     }
 
     /**
@@ -89,17 +89,28 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $category)
+    public function update(Request $request, Category $category)
     {
+
         $validasi = $request->validate([
-            'category' => "required|max:15|unique:categories",
+            'category' => "required|max:15",
             "description" => "required|string",
-            "image" => "required|mimes:png,jpg,jpeg|max:10240"
+            "image" => "mimes:png,jpg,jpeg|max:10240"
         ]);
-        
-        Category::where('id', $category->id)->update($validasi);
-        $request->session()->flash('pesan',"Data berhasil diperbaharui");
-        return redirect()->route("category.show",compact('categories'));
+
+        if ($request->file('image')){
+            Storage::delete($category->image);
+        }
+        $image = $request->file('image')->store('category/image');
+        Category::where('id', $category->id)->update(
+            [
+                'category' => $validasi['category'],
+                'image' => $image,
+                'description' => $validasi['description']
+            ]
+        );
+        $request->session()->flash('Pesan',"Data berhasil diperbaharui");
+        return redirect()->route("category.show",['category'=> $category->id]);
     }
     /**
      * Remove the specified resource from storage.

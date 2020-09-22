@@ -21,7 +21,7 @@
                             <label for="category" class="col-md-4 col-form-label text-md-right">{{ __('Name Category') }}</label>
 
                             <div class="col-md-6">
-                                <input id="category" type="text" class="form-control @error('category') is-invalid @enderror" name="category" value="{{ old('category') }}" required autocomplete="category" autofocus>
+                                <input id="category" type="text" class="form-control @error('category') is-invalid @enderror" name="category" value="{{ old('category') }}"  autocomplete="category" autofocus>
 
                                 @error('category')
                                     <span class="invalid-feedback" role="alert">
@@ -51,7 +51,7 @@
 
                             <div class="col-md-6">
 
-                                <input name="image" type="file" class="form-control-file @error('image') is-invalid @enderror" name="image"  required autocomplete="image" id="exampleFormControlFile1" autofocus>
+                                <input id="image" type="file" class="form-control-file @error('image') is-invalid @enderror" name="image"  autocomplete="image" autofocus>
 
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
