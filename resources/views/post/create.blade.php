@@ -69,10 +69,10 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right" for="exampleFormControlTextarea1">{{ __('Description Video') }}</label>
+                            <label class="col-md-4 col-form-label text-md-right" for="description">{{ __('Description Video') }}</label>
 
                             <div class="col-md-6">
-                                <textarea name="description" placeholder="Description Video" class="form-control @error('description') is-invalid @enderror" name="description"  autocomplete="description" id="exampleFormControlTextarea1" rows="3" autofocus>{{ old('description') }}</textarea>
+                                <textarea id="description" placeholder="Description Video" class="form-control @error('description') is-invalid @enderror" name="description"  autocomplete="description" id="exampleFormControlTextarea1" rows="3" autofocus>{{ old('description') }}</textarea>
 
                                 @error('description')
                                     <span class="invalid-feedback" role="alert">
@@ -83,11 +83,11 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right" for="exampleFormControlFile1">{{ __('Video') }}</label>
+                            <label class="col-md-4 col-form-label text-md-right" for="video">{{ __('Video') }}</label>
 
                             <div class="col-md-6">
 
-                                <input name="video" type="file" class="form-control-file @error('video') is-invalid @enderror" name="video"  required autocomplete="video" id="exampleFormControlFile1" autofocus>
+                                <input id="video" type="file" class="form-control-file @error('video') is-invalid @enderror" name="video"  required autocomplete="video" id="exampleFormControlFile1" autofocus>
 
                                 @error('video')
                                     <span class="invalid-feedback" role="alert">
