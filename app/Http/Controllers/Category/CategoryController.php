@@ -125,6 +125,7 @@ class CategoryController extends Controller
 
     public function delete(Category $category)
     {
+        Storage::delete($category->image);
         $category->delete();
         return redirect()->route('category.index')
         ->with('pesan',"Data berhasil dihapus");
