@@ -16,7 +16,7 @@
                     <p class="lead">{{ $categories->description }}</p>
                     <div class="list-group">
                         @foreach ($categories->posts as $post)
-                            <a href="/posts/show/{{$post->id}}" class="list-group-item list-group-item-action list-group-item-secondary">{{ $post->name_video }}</a>
+                            <a href="/posts/{{$post->id}}/show" class="list-group-item list-group-item-action list-group-item-secondary">{{ $post->name_video }}</a>
                         @endforeach
                     </div>
                 </div>
