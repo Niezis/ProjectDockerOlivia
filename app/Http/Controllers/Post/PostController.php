@@ -95,8 +95,8 @@ class PostController extends Controller
             'name_video' => "required|string|max:25",
             'category_id' => "required",
             "order" => "required|integer",
-            "start" => "required|integer",
-            "end" => "required|integer",
+            "start" => "nullable|integer",
+            "end" => "nullable|integer",
             "description" => 'required|max:255|string',
             "video" => "required|string|max:50"
 
@@ -114,7 +114,6 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $category = Category::find($post->category_id);
         $post->delete();
         return redirect()->route('category.show', ['category'=> $post->category_id])
         ->with('pesan',"Data berhasil dihapus");
