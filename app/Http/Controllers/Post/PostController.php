@@ -40,10 +40,6 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
 
-
-        //$file = $request->file('video');
-        //$video = $file->store('learn/video');
-
         $request["name_video"] = ucwords($request["name_video"]);
         $request['description'] = ucfirst($request['description']);
 
@@ -101,13 +97,12 @@ class PostController extends Controller
             "start" => "required|integer",
             "end" => "required|integer",
             "description" => 'required|max:255|string',
-            "video" => "required|string|max:50",
-        ]);
+            "video" => "required|string|max:50"
 
+        ]);
         Post::where('id', $post->id)->update($validasi);
         $request->session()->flash('pesan',"Data berhasil diperbaharui");
         return redirect()->route("post.show", ['post'=>$post->id]);
-        //compact('posts')
     }
 
     /**
@@ -120,7 +115,7 @@ class PostController extends Controller
     {
         $category = Category::find($post->category_id);
         $post->delete();
-        return redirect()->route('post.show',['post' => $category->id])
+        return redirect()->route('category.show', ['category'=> $post->category_id])
         ->with('pesan',"Data berhasil dihapus");
     }
 }
