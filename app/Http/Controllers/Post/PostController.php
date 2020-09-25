@@ -126,7 +126,7 @@ class PostController extends Controller
     public function delete(Post $post)
     {
         $post->delete();
-        return redirect()->route('category.show', ['category'=>$category->id])
+        return redirect()->route('category.show', ['category'=>$post->category_id])
         ->with('pesan',"Data berhasil dihapus");
     }
 
