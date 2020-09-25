@@ -51,12 +51,10 @@ class PostController extends Controller
             'name_video' => $request["name_video"],
             'order' => $request['order'],
             'category_id' => $request['category'],
-            //'slug' => Str::slug($request['name_video']),
             'description' => $request['description'],
             'video' => $request['video'],
             'start' => $request['start'],
             'end' => $request['end'],
-            //'video' => $video
         ]);
 
         return back()->with('success',"Post has been created");
@@ -83,8 +81,8 @@ class PostController extends Controller
     public function edit($post)
     {
         $categories = Category::with('posts')->get();
-        $result=Post::find($post);
-        return view('post.edit', ['post'=>$result]);
+        $post=Post::find($post);
+        return view('post.edit', ['post'=>$post]);
     }
 
     /**
@@ -105,7 +103,7 @@ class PostController extends Controller
             "description" => 'required|max:255|string',
             "video" => "required|string|max:50|unique:posts",
         ]);
-        
+
         Post::where('id', $post->id)->update($validasi);
         $request->session()->flash('pesan',"Data berhasil diperbaharui");
         return redirect()->route("post.show",compact('posts'));
@@ -124,8 +122,9 @@ class PostController extends Controller
 
     public function delete(Post $post)
     {
+        $category = Category::find($post->category_id);
         $post->delete();
-        return redirect()->route('post.index')
+        return redirect()->route('post.show',['post' => $category->id])
         ->with('pesan',"Data berhasil dihapus");
     }
 

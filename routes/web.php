@@ -18,7 +18,6 @@ Route::get('/', function () {
 });
 
 Auth::routes(['verify' => true]);
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 
@@ -28,6 +27,9 @@ Route::namespace('Oauth')->group(function () {
     Route::get('login/{provider}', 'OauthController@redirectToProvider')->name('provider.redirect');
     Route::get('{provider}/callback', 'OauthController@handleCallbackProvider')->name('provider.callback');
 });
+
+
+
 Route::middleware(['auth',"role:admin"])->group(function () {
     Route::get('categories/create', 'Category\CategoryController@create')->name('category.create');
     Route::post('categories/post', 'Category\CategoryController@store')->name('category.post');
@@ -45,11 +47,9 @@ Route::middleware(['auth',"role:admin"])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
 
-    // Create Category
+
     Route::get('categories/index', 'Category\CategoryController@index')->name('category.index');
     Route::get('categories/{category}/show', 'Category\CategoryController@show')->name('category.show');
-
-    // Create Post
 
     Route::get('/posts/{post}/show', 'Post\PostController@show')->name('post.show');
 
