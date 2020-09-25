@@ -61,6 +61,9 @@
                                     </span>
                                 @enderror
                             </div>
+                            {{-- <div class="col-md-6">
+                                <img style="height: 300px; object-fit: cover; object-position: center" src="{{ asset("storage/".$category->image) }}" class="card-img-top" alt="...">
+                            </div> --}}
                         </div>
 
                         <div class="col-md-8 offset-md-4">

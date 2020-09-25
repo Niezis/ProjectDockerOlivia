@@ -56,7 +56,7 @@
                                     <option disabled selected>Choose One!</option>
 
                                 @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->category }}</option>
+                                    <option value="{{ $category->id }}"  {{$post->category_id == $category->id  ? 'selected' : ''}}>{{ $category->category }}</option>
                                 @endforeach
 
                                 </select>
