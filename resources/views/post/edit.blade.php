@@ -52,7 +52,7 @@
                             <label for="category" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
 
                             <div class="col-md-6">
-                                <select id="category" class="form-control  @error('category') is-invalid @enderror" name="category">
+                                <select id="category" class="form-control  @error('category') is-invalid @enderror" name="category_id">
                                     <option disabled selected>Choose One!</option>
 
                                 @foreach ($categories as $category)
@@ -120,21 +120,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                        {{-- <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right" for="exampleFormControlFile1">{{ __('Video') }}</label>
-
-                            <div class="col-md-6">
-
-                                <input name="video" type="file" class="form-control-file @error('video') is-invalid @enderror" name="video"  required autocomplete="video" id="exampleFormControlFile1" autofocus>
-
-                                @error('video')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> --}}
 
                         <div class="col-md-8 offset-md-4">
                             <button type="submit" class="btn btn-dark">

@@ -39,16 +39,16 @@
                     <a href="/posts/{{$post->id}}/show" class="list-group-item list-group-item-action list-group-item-secondary">{{ $post->name_video }}</a>
                     @endforeach
                 </div>
-
-                <form class="m-2" action="{{ route('post.delete', ['post' => $post->id]) }}"
-                    method="POST">
-                    @method('DELETE')
-                    @csrf
-                    <a href="{{route('post.edit',['post'=> $post->id])}}" class="btn btn-info btn-md active" role="button" aria-pressed="true">Edit</a>
-                    <button type="submit" class="btn btn-danger ml-3">Delete</button>
-                </form>
+                @hasrole('admin')
+                    <form class="m-2" action="{{ route('post.delete', ['post' => $post->id]) }}"
+                        method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <a href="{{route('post.edit',['post'=> $post->id])}}" class="btn btn-info btn-md active" role="button" aria-pressed="true">Edit</a>
+                        <button type="submit" class="btn btn-danger ml-3">Delete</button>
+                    </form>
+                @endhasrole
             </div>
-
         </div>
     </div>
 </div>

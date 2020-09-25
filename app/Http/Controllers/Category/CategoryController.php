@@ -100,9 +100,11 @@ class CategoryController extends Controller
 
         if ($request->file('image')){
             Storage::delete($category->image);
+            $image = $request->file('image')->store('category/image');
 
-        $image = $request->file('image')->store('category/image');
-
+        }else{
+            $image = $category->image;
+        }
         Category::where('id', $category->id)->update(
             [
                 'category' => $validasi['category'],
@@ -110,16 +112,6 @@ class CategoryController extends Controller
                 'description' => $validasi['description']
             ]
         );
-        } else {
-
-            Category::where('id', $category->id)->update(
-                [
-                    'category' => $validasi['category'],
-                    'description' => $validasi['description']
-                ]
-            );
-
-        }
         $request->session()->flash('Pesan',"Data berhasil diperbaharui");
         return redirect()->route("category.show",['category'=> $category->id]);
     }
@@ -129,12 +121,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
-    }
-
-    public function delete(Category $category)
+    public function destroy(Category $category)
     {
         Storage::delete($category->image);
         $category->delete();

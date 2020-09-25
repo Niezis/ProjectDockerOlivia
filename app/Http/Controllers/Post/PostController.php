@@ -27,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        $categories = Category::with('posts')->get();
+        $categories = Category::all();
         return view('post.create',compact('categories'));
     }
 
@@ -40,10 +40,6 @@ class PostController extends Controller
     public function store(PostRequest $request)
     {
 
-
-        //$file = $request->file('video');
-        //$video = $file->store('learn/video');
-
         $request["name_video"] = ucwords($request["name_video"]);
         $request['description'] = ucfirst($request['description']);
 
@@ -51,12 +47,10 @@ class PostController extends Controller
             'name_video' => $request["name_video"],
             'order' => $request['order'],
             'category_id' => $request['category'],
-            //'slug' => Str::slug($request['name_video']),
             'description' => $request['description'],
             'video' => $request['video'],
             'start' => $request['start'],
             'end' => $request['end'],
-            //'video' => $video
         ]);
 
         return back()->with('success',"Post has been created");
@@ -81,11 +75,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($post)
+    public function edit(Post $post)
     {
-        $categories = Category::with('posts')->get();
-        $result=Post::find($post);
-        return view('post.edit', ['post'=>$result], compact('categories'));
+
+        $categories=Category::with('posts')->get();
+        return view('post.edit',compact('post','categories'));
     }
 
     /**
@@ -104,13 +98,12 @@ class PostController extends Controller
             "start" => "required|integer",
             "end" => "required|integer",
             "description" => 'required|max:255|string',
-            "video" => "required|string|max:50",
-        ]);
+            "video" => "required|string|max:50"
 
+        ]);
         Post::where('id', $post->id)->update($validasi);
         $request->session()->flash('pesan',"Data berhasil diperbaharui");
         return redirect()->route("post.show", ['post'=>$post->id]);
-        //compact('posts')
     }
 
     /**
@@ -119,16 +112,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
-    }
-
-    public function delete(Post $post)
-    {
+        $category = Category::find($post->category_id);
         $post->delete();
-        return redirect()->route('category.show', ['category'=>$post->category_id])
+        return redirect()->route('category.show', ['category'=> $post->category_id])
         ->with('pesan',"Data berhasil dihapus");
     }
-
 }
