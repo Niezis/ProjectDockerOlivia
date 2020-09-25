@@ -6,6 +6,7 @@ use App\{Category,Post};
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PostRequest;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -94,7 +95,13 @@ class PostController extends Controller
         $validasi = $request->validate([
             'name_video' => "required|string|max:25",
             'category_id' => "required",
-            "order" => "required|integer",
+            'order' => [
+                'required',
+                Rule::unique('posts')->where(function ($query){
+                    return $query->where('category_id',request('category_id'));
+
+                }),
+            ],
             "start" => "nullable|integer",
             "end" => "nullable|integer",
             "description" => 'required|max:255|string',

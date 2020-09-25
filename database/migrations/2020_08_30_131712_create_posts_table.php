@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('name_video');
             $table->string('video');
-            $table->integer('order')->unique();
+            $table->integer('order');
             $table->integer('start')->nullable();
             $table->integer('end')->nullable();
             $table->text('description')->nullable();

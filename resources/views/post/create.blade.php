@@ -25,7 +25,7 @@
                             <label for="name_video" class="col-md-4 col-form-label text-md-right">{{ __('Name Video') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name_video" type="text" class="form-control @error('name_video') is-invalid @enderror" name="name_video" value="{{ old('name_video') }}" required autocomplete="name_video" autofocus>
+                                <input id="name_video" type="text" class="form-control @error('name_video') is-invalid @enderror" name="name_video" value="{{ old('name_video') }}"  autocomplete="name_video" autofocus>
 
                                 @error('name_video')
                                     <span class="invalid-feedback" role="alert">
@@ -39,7 +39,7 @@
                             <label for="video" class="col-md-4 col-form-label text-md-right">{{ __('Link Video') }}</label>
 
                             <div class="col-md-6">
-                                <input id="video" type="text" class="form-control @error('video') is-invalid @enderror" name="video" value="{{ old('video') }}" required autocomplete="video" autofocus>
+                                <input id="video" type="text" class="form-control @error('video') is-invalid @enderror" name="video" value="{{ old('video') }}"  autocomplete="video" autofocus>
 
                                 @error('video')
                                     <span class="invalid-feedback" role="alert">
@@ -60,7 +60,7 @@
                                 @endforeach
 
                                 </select>
-                                @error('category')
+                                @error('category_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -71,7 +71,7 @@
                             <label for="order" class="col-md-4 col-form-label text-md-right">{{ __('Order') }}</label>
 
                             <div class="col-md-6">
-                                <input id="order" min="0" type="number" class="form-control @error('order') is-invalid @enderror" name="order" value="{{ old('order') }}" required autocomplete="order" autofocus>
+                                <input id="order" min="0" type="number" class="form-control @error('order') is-invalid @enderror" name="order" value="{{ old('order') }}"  autocomplete="order" autofocus>
                                 @error('order')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -119,21 +119,6 @@
                                 @enderror
                             </div>
                         </div>
-
-                        {{-- <div class="form-group row">
-                            <label class="col-md-4 col-form-label text-md-right" for="video">{{ __('Video') }}</label>
-
-                            <div class="col-md-6">
-
-                                <input id="video" type="file" class="form-control-file @error('video') is-invalid @enderror" name="video"  required autocomplete="video" autofocus>
-
-                                @error('video')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> --}}
 
                         <div class="col-md-8 offset-md-4">
                             <button type="submit" class="btn btn-dark">

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
-
+use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class PostRequest extends FormRequest
@@ -25,8 +25,14 @@ class PostRequest extends FormRequest
     {
         return [
             'name_video' => "required|string|max:25|unique:posts",
-            'category' => "required",
-            "order" => "required|integer|unique:posts",
+            'category_id' => 'required',
+            'order' => [
+                    'required',
+                    Rule::unique('posts')->where(function ($query){
+                        return $query->where('category_id',request('category_id'));
+
+                    }),
+                ],
             "start" => "nullable|integer",
             "end" => "nullable|integer",
             "description" => 'required|max:255|string',
