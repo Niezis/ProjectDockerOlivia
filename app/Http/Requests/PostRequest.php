@@ -27,8 +27,8 @@ class PostRequest extends FormRequest
             'name_video' => "required|string|max:25|unique:posts",
             'category' => "required",
             "order" => "required|integer|unique:posts",
-            "start" => "required|integer",
-            "end" => "required|integer",
+            "start" => "nullable|integer",
+            "end" => "nullable|integer",
             "description" => 'required|max:255|string',
             "video" => "required|string|max:50|unique:posts",
         ];

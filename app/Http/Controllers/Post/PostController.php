@@ -71,7 +71,8 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $category = Category::with('posts')->where('id',$post->category_id)->first();
-        return view('post.show',compact('category','post'));
+        $link = Str::after($post->video, 'https://www.youtube.com/watch?v=');
+        return view('post.show',compact('category','post','link'));
     }
 
     /**

@@ -15,6 +15,20 @@
                 {{-- <video width="320" height="240" class='p-2' controls>
                     <source src="{{ asset("storage/".$post->video) }}" type="video/mp4">
                 </video> --}}
+
+                <iframe id="existing-iframe-example"
+                width="320" height="240"
+
+                @if ($post->start)
+                    src="https://www.youtube.com/embed/{{ $link }}?start={{$post->start}}&end={{$post->end}}"
+                @else
+                    src="https://www.youtube.com/embed/{{ $link }}?"
+                @endif
+
+                frameborder="0"
+                style="border: solid 4px #37474F"
+                ></iframe>
+
                 <div class="card-body">
                     <div class="p-3 mb-2 bg-secondary text-white">{{$post->description}}
                     </div>
