@@ -44,15 +44,7 @@ class PostController extends Controller
         $request["name_video"] = ucwords($request["name_video"]);
         $request['description'] = ucfirst($request['description']);
 
-        Post::create([
-            'name_video' => $request["name_video"],
-            'order' => $request['order'],
-            'category_id' => $request['category'],
-            'description' => $request['description'],
-            'video' => $request['video'],
-            'start' => $request['start'],
-            'end' => $request['end'],
-        ]);
+        Post::create($request);
 
         return back()->with('success',"Post has been created");
     }
@@ -90,25 +82,11 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(PostRequest $request, Post $post)
     {
-        $validasi = $request->validate([
-            'name_video' => "required|string|max:25",
-            'category_id' => "required",
-            'order' => [
-                'required',
-                Rule::unique('posts')->where(function ($query){
-                    return $query->where('category_id',request('category_id'));
-
-                }),
-            ],
-            "start" => "nullable|integer",
-            "end" => "nullable|integer",
-            "description" => 'required|max:255|string',
-            "video" => "required|string|max:50"
-
-        ]);
-        Post::where('id', $post->id)->update($validasi);
+        $request["name_video"] = ucwords($request["name_video"]);
+        $request['description'] = ucfirst($request['description']);
+        Post::where('id', $post->id)->update($request);
         $request->session()->flash('pesan',"Data berhasil diperbaharui");
         return redirect()->route("post.show", ['post'=>$post->id]);
     }

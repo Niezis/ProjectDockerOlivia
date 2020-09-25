@@ -38,7 +38,7 @@ class OauthController extends Controller
                 $user = User::create([
                     "name" => $sosialUser->getName(),
                     "email" => $sosialUser->getEmail()
-                ]);
+                ])->assignRole('user');
             }
 
             $user->oauths()->create([
