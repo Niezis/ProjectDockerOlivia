@@ -71,7 +71,7 @@
                             <label for="order" class="col-md-4 col-form-label text-md-right">{{ __('Order') }}</label>
 
                             <div class="col-md-6">
-                                <input id="order" min="0" type="number" class="form-control @error('order') is-invalid @enderror" name="order" value="{{ old('order') ?? $post->order}}" autocomplete="order" autofocus>
+                                <input id="order" min="1" type="number" class="form-control @error('order') is-invalid @enderror" name="order" value="{{ old('order') ?? $post->order}}" autocomplete="order" autofocus>
 
                                 @error('order')
                                     <span class="invalid-feedback" role="alert">

@@ -52,7 +52,7 @@
                             <label for="category" class="col-md-4 col-form-label text-md-right">{{ __('Category') }}</label>
 
                             <div class="col-md-6">
-                                <select id="category" class="form-control  @error('category') is-invalid @enderror" name="category">
+                                <select id="category" class="form-control  @error('category') is-invalid @enderror" name="category_id">
                                     <option disabled selected>Choose One!</option>
 
                                 @foreach ($categories as $category)
@@ -71,7 +71,7 @@
                             <label for="order" class="col-md-4 col-form-label text-md-right">{{ __('Order') }}</label>
 
                             <div class="col-md-6">
-                                <input id="order" min="0" type="number" class="form-control @error('order') is-invalid @enderror" name="order" value="{{ old('order') }}"  autocomplete="order" autofocus>
+                                <input id="order" min="1" type="number" class="form-control @error('order') is-invalid @enderror" name="order" value="{{ old('order') }}"  autocomplete="order" autofocus>
                                 @error('order')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

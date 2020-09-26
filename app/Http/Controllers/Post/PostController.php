@@ -40,12 +40,20 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-
+        
         $request["name_video"] = ucwords($request["name_video"]);
         $request['description'] = ucfirst($request['description']);
-
-        Post::create($request);
-
+       
+       
+        $post = Post::create([
+            'name_video' => $request['name_video'],
+            'category_id' => $request['category_id'],
+            'order' => $request['order'],
+            "start" => $request['start'],
+            "end" => $request['end'],
+            "description" => $request["description"],
+            "video" => $request['video']
+        ]);
         return back()->with('success',"Post has been created");
     }
 
@@ -82,11 +90,26 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $request, Post $post)
+    public function update(Request $request, Post $post)
     {
-        $request["name_video"] = ucwords($request["name_video"]);
-        $request['description'] = ucfirst($request['description']);
-        Post::where('id', $post->id)->update($request);
+        $validasi = $request->validate([
+            'name_video' => "required|string|max:25|unique:posts,name_video,".$post->id,
+            'category_id' => 'required',
+            'order' => [
+                    'required',
+                    Rule::unique('posts')->where(function ($query){
+                        return $query->where('category_id',request('category_id'));
+
+                    })->ignore($post->id),
+                ],
+            "start" => "nullable|integer",
+            "end" => "nullable|integer",
+            "description" => 'required|max:255|string',
+            "video" => "required|string|max:50|unique:posts,video,".$post->id,
+        ]);
+        $request["name_video"] = ucwords($validasi["name_video"]);
+        $request['description'] = ucfirst($validasi['description']);
+        Post::where('id', $post->id)->update($validasi);
         $request->session()->flash('pesan',"Data berhasil diperbaharui");
         return redirect()->route("post.show", ['post'=>$post->id]);
     }
