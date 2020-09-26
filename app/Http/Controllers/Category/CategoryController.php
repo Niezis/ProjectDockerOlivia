@@ -93,7 +93,7 @@ class CategoryController extends Controller
     {
 
         $validasi = $request->validate([
-            'category' => "required|max:15",
+            'category' => "required|max:15|unique:categories,category,".$category->id,
             "description" => "required|string",
             "image" => "mimes:png,jpg,jpeg|max:10240"
         ]);
