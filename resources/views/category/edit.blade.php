@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form method="POST" action="{{route('category.update', ['category' => $category->id])}}" enctype="multipart/form-data">
+                    <form method="POST" action="{{route('category.update', ['category' => $category->slug])}}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group row">

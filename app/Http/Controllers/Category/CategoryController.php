@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -46,13 +47,14 @@ class CategoryController extends Controller
         ]);
 
         $image = $request->file('image')->store('category/image');
-
+        $slug = Str::slug($validasi['category'], '-');
         $validasi['category'] = ucwords($validasi["category"]);
 
         Category::create([
             'category' => $validasi['category'],
             'image' => $image,
-            'description' => $validasi['description']
+            'description' => $validasi['description'],
+            'slug' => $slug
         ]);
 
         return back()->with('success',"Category has been created");
@@ -76,9 +78,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($category)
+    public function edit(Category $category)
     {
-        $category=Category::find($category);
+        $category=Category::find($category->id);
         return view('category.edit', compact('category'));
     }
 
@@ -105,15 +107,18 @@ class CategoryController extends Controller
         }else{
             $image = $category->image;
         }
+        $slug = Str::slug($validasi['category'], '-');
+        $validasi['category'] = ucwords($validasi["category"]);
         Category::where('id', $category->id)->update(
             [
                 'category' => $validasi['category'],
                 'image' => $image,
-                'description' => $validasi['description']
+                'description' => $validasi['description'],
+                'slug' => $slug
             ]
         );
         $request->session()->flash('Pesan',"Data berhasil diperbaharui");
-        return redirect()->route("category.show",['category'=> $category->id]);
+        return redirect()->route("category.show",['category'=> $slug]);
     }
     /**
      * Remove the specified resource from storage.

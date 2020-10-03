@@ -15,5 +15,9 @@ class Post extends Model
         'name_video' => 'required|string|max:25|unique:posts',
         "video" => "required|string|max:50|unique:posts"
     ];
-    
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
 }

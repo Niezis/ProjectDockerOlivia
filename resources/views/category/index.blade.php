@@ -14,7 +14,7 @@
                     <img style="height: 300px; object-fit: cover; object-position: center" src="{{ asset("storage/".$category->image) }}" class="card-img-top" alt="...">
                     <div class="card-body">
                         <p>{{Str::limit($category->description, 200, '...')}}</p>
-                        <a href="{{ route('category.show',['category' => $category->id]) }}" class="btn btn-primary">Go Learn</a>
+                        <a href="{{ route('category.show',['category' => $category->slug]) }}" class="btn btn-primary">Go Learn</a>
                     </div>
 
                     <div class="card-footer">

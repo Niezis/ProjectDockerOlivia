@@ -40,7 +40,7 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-
+        $slug = Str::slug($request['name_video'], '-');
         $request["name_video"] = ucwords($request["name_video"]);
         $request['description'] = ucfirst($request['description']);
 
@@ -52,7 +52,8 @@ class PostController extends Controller
             "start" => $request['start'],
             "end" => $request['end'],
             "description" => $request["description"],
-            "video" => $request['video']
+            "video" => $request['video'],
+            'slug' => $slug
         ]);
         return back()->with('success',"Post has been created");
     }
@@ -107,11 +108,12 @@ class PostController extends Controller
             "description" => 'required|max:255|string',
             "video" => "required|string|max:50|unique:posts,video,".$post->id,
         ]);
-        $request["name_video"] = ucwords($validasi["name_video"]);
-        $request['description'] = ucfirst($validasi['description']);
+        $validasi['slug'] = Str::slug($validasi['name_video'], '-');
+        $validasi["name_video"] = ucwords($validasi["name_video"]);
+        $validasi['description'] = ucfirst($validasi['description']);
         Post::where('id', $post->id)->update($validasi);
         $request->session()->flash('pesan',"Data berhasil diperbaharui");
-        return redirect()->route("post.show", ['post'=>$post->id]);
+        return redirect()->route("post.show", ['post'=> $validasi['slug']]);
     }
 
     /**
@@ -123,7 +125,7 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect()->route('category.show', ['category'=> $post->category_id])
+        return redirect()->route('category.show', ['category'=> $post->category->slug])
         ->with('pesan',"Data berhasil dihapus");
     }
 }

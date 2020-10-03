@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->integer('start')->nullable();
             $table->integer('end')->nullable();
             $table->text('description')->nullable();
+            $table->string('slug');
             $table->timestamps();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });

@@ -36,15 +36,15 @@
 
                 <div class="card-footer">
                     @foreach ($category->posts as $post)
-                    <a href="/posts/{{$post->id}}/show" class="list-group-item list-group-item-action list-group-item-secondary">{{ $post->name_video }}</a>
+                    <a href="/posts/{{$post->slug}}/show" class="list-group-item list-group-item-action list-group-item-secondary">{{ $post->name_video }}</a>
                     @endforeach
                 </div>
                 @hasrole('admin')
-                    <form class="m-2" action="{{ route('post.delete', ['post' => $post->id]) }}"
+                    <form class="m-2" action="{{ route('post.delete', ['post' => $post->slug]) }}"
                         method="POST">
                         @method('DELETE')
                         @csrf
-                        <a href="{{route('post.edit',['post'=> $post->id])}}" class="btn btn-info btn-md active" role="button" aria-pressed="true">Edit</a>
+                        <a href="{{route('post.edit',['post'=> $post->slug])}}" class="btn btn-info btn-md active" role="button" aria-pressed="true">Edit</a>
                         <button type="submit" class="btn btn-danger ml-3">Delete</button>
                     </form>
                 @endhasrole
