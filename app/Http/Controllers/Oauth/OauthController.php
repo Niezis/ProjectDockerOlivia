@@ -21,7 +21,7 @@ class OauthController extends Controller
         }
         $authUser = $this->findOrCreateUser($user,$provider);
         Auth::login($authUser,true);
-        return redirect()->route("home");
+        return redirect()->route("category.index");
 
     }
 
