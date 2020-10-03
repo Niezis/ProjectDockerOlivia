@@ -40,11 +40,11 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        
+
         $request["name_video"] = ucwords($request["name_video"]);
         $request['description'] = ucfirst($request['description']);
-       
-       
+
+
         $post = Post::create([
             'name_video' => $request['name_video'],
             'category_id' => $request['category_id'],
