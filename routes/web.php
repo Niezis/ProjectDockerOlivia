@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/contact', 'Contact\ContactMessageController@create')->name('contact.create');
+Route::post('/contact', 'Contact\ContactMessageController@store')->name('contact.post');
+
 Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->name('home');
 
