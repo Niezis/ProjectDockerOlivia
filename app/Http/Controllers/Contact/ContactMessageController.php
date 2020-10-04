@@ -24,7 +24,7 @@ class ContactMessageController extends Controller
             'message' => 'required',
         ]);
 
-        Mail::to('admin@example.com')->send(new ContactMessageMail($data));
+        Mail::to('estaterpack@gmail.com')->send(new ContactMessageMail($data));
 
         return back()->with('success',"Terimakasih sudah mengirimkan pesan kepada kami!");
     }

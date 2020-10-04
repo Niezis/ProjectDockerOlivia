@@ -1,9 +1,13 @@
 @component('mail::message')
 
-<strong>Name</strong> {{  $data['name']  }}
-<strong>Email</strong> {{  $data['email']  }}
+<h1>Form Kontak eLstack</h1>
 
-<strong>Message</strong>
+
+<strong>Nama Pengirim  : </strong> {{  $data['name']  }} <br>
+<strong>Email Pengirim : </strong> {{  $data['email']  }} <br>
+
+<strong>Pesan</strong>
 
 {{ $data['message'] }}
+
 @endcomponent

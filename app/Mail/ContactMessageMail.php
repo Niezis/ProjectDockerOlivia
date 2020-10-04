@@ -30,6 +30,7 @@ class ContactMessageMail extends Mailable
      */
     public function build()
     {
-        return $this->markdown('emails.contact.contact-form');
+        return $this->from('estaterpack@gmail.com')
+                    ->markdown('emails.contact.contact-form');
     }
 }
