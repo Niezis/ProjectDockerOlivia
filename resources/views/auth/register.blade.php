@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('content')
 <div class="container">
@@ -66,19 +66,6 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-12">
-                                <a href="login/facebook" class="btn btn-facebook">
-                                    <i class="fa fa-facebook"></i>
-                                    Sign In with Facebook
-                                </a>
-                                <a href="login/github" class="btn btn-github">
-                                    <i class="fa fa-github"></i>
-                                    Sign In with GitHub
-                                </a>
                             </div>
                         </div>
                     </form>
