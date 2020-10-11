@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>STARTERPACK</title>
+    <title>Elstack</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -21,7 +21,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- my fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
      <!-- My CSS -->
      <link rel="stylesheet" type="text/css" href="{{ asset('/css/login.css') }}">
 </head>
@@ -31,7 +31,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    STARTERPACK
+                    ELSTACK
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -47,8 +47,10 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
+                            </li>
                             <li class="nav-item">
-                                
                                 <a class="btn  btn-secondary tombol1 btn-block" href="{{ route('register') }}">{{ __('SIGNUP') }}</a>
                             </li>
                             @if (Route::has('register'))
@@ -83,7 +85,7 @@
         <main class="py-4">
             @yield('content')
         </main>
-        
+
     </div>
 </body>
 </html>

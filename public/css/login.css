@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
   }
-  .navbar{
+.navbar{
     position: relative;
     color: black;
 }
@@ -47,5 +47,10 @@
     margin-top: auto;
     margin-left: 10px;
   }
+
+  .nav-link{
+    text-transform: uppercase;
+    margin-right: 30px;
+    }
 
 }

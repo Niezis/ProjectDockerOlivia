@@ -120,7 +120,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-8 offset-md-4">
+                        <div class="offset-md-10 col-md-2">
                             <button type="submit" class="btn btn-dark">
                                 {{ __('Submit') }}
                             </button>

@@ -31,7 +31,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    STARTERPACK
+                    ELSTACK
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -47,8 +47,10 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                            <li class="nav-item active">
+                                <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
+                            </li>
                             <li class="nav-item">
-
                                 <a class="btn  btn-secondary tombol1 btn-block" href="{{ route('register') }}">{{ __('SIGNUP') }}</a>
                             </li>
                             @if (Route::has('register'))
