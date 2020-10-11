@@ -4,7 +4,6 @@
   }
   .navbar{
     position: relative;
-    color: black;
 }
 .navbar-brand {
     font-family: viga;
@@ -47,5 +46,25 @@
     margin-top: auto;
     margin-left: 10px;
   }
+  .bg-dark{
+    background-color: transparent !important;
+}
+.navbar-brand, .nav-link{
+  color: white !important;
+  text-shadow: 1px 1px 1px rgba(0,0,0,1);
+}
+.nav-link{
+  text-transform: uppercase;
+  margin-right: 30px;
+}
+.nav-link:hover::after{
+content: '';
+display: block;
+border-bottom: 3px solid #5191E3;
+width: 50%;
+margin: auto;
+padding-bottom: 5px;
+margin-bottom: -8px;
+}
 
 }
