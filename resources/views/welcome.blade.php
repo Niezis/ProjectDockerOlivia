@@ -8,13 +8,13 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- my fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
     <!-- My CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/landing.css') }}">
     <title>Starterpack</title>
   </head>
   <body>
- <!-- Nav bar -->
+<!-- Nav bar -->
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container">
     <a class="navbar-brand" href="#">STARTERPACK</a>
@@ -85,8 +85,8 @@
             </div>
         </div>
       </div>
-<!-- akhir info panel -->
-<!-- WorkingSpace -->
+    <!-- akhir info panel -->
+    <!-- WorkingSpace -->
       <div class="row workingspace">
         <div class="col-lg 6">
           <img src="{{ asset('/img/zom.webp') }}" alt="workingSpace" class="img-fluid">
@@ -95,8 +95,8 @@
           <h3>YOU <span>WORK</span> AND <span>STUDY</span>
             AT <span>HOME</span></h3>
             <p>
-              Belajar menggunakan kurikulum yang 
-telah divasilitasi industry IT diera Pandemi
+              Belajar menggunakan kurikulum yang
+              telah divasilitasi industry IT diera Pandemi
             </p>
             <a href="" class="btn btn-primary tombol2">Check Now!</a>
         </div>
@@ -150,20 +150,20 @@ telah divasilitasi industry IT diera Pandemi
         </div>
       </div>
     </div>
-    
+
 
   </div>
 </section>
 <!-- akhir card -->
 <!-- Testimonial -->
-      
+
       <section class="testimoni">
         <div class="row justify-content-center">
           <div class="col-lg-8">
             <h5 id="about">
-              "Terima kasih untuk Starterpack karena di sini saya banyak sekali belajar 
-cara menggunakan aplikasi video conference dan
- tutorialnya juga mudah dimengerti."
+                "Terima kasih untuk Starterpack karena di sini saya banyak sekali belajar
+                cara menggunakan aplikasi video conference dan
+                tutorialnya juga mudah dimengerti."
             </h5>
           </div>
         </div>

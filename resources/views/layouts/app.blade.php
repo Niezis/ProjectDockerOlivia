@@ -21,7 +21,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- my fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
      <!-- My CSS -->
      <link rel="stylesheet" type="text/css" href="{{ asset('/css/login.css') }}">
 </head>
@@ -48,7 +48,7 @@
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
-                                
+
                                 <a class="btn  btn-secondary tombol1 btn-block" href="{{ route('register') }}">{{ __('SIGNUP') }}</a>
                             </li>
                             @if (Route::has('register'))
@@ -57,6 +57,10 @@
                                 </li>
                             @endif
                         @else
+                            <form class="form-inline">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                {{-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> --}}
+                            </form>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -78,16 +82,13 @@
                     </ul>
                 </div>
             </div>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
+
         </nav>
 
         <main class="py-4">
             @yield('content')
         </main>
-        
+
     </div>
 </body>
 </html>
