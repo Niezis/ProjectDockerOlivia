@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+@section('search')
+<form class="form-inline" action="{{route('category.search')}}">
+    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
+</form>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

@@ -22,6 +22,15 @@ class CategoryController extends Controller
         return view('category.index',compact('categories'));
     }
 
+
+    public function search(Request $request)
+    {
+        dd($request->search);
+        // $nilai = Category::where('name' => "%$request%");
+        $categories = Category::simplePaginate();
+        return view('category.index',compact('categories'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
