@@ -11,13 +11,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
     <!-- My CSS -->
     <link rel="stylesheet" type="text/css" href="{{ asset('/css/landing.css') }}">
-    <title>Elstack</title>
+    <title>Elearning Starterpack</title>
   </head>
   <body>
 <!-- Nav bar -->
 <nav class="navbar navbar-expand-lg navbar-light">
   <div class="container">
-    <a class="navbar-brand" href="#">ELSTACK</a>
+    <a class="navbar-brand" href="#">ElStack</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -26,19 +26,12 @@
         <li class="nav-item active">
           <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
         </li>
-        <!-- <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Catagory
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="#">Google Meet</a>
-            <a class="dropdown-item" href="#">Webex</a>
-            <a class="dropdown-item" href="#">Zoom</a>
-            <a class="dropdown-item" href="#">Google Clasroom</a>
-          </div>
-        </li> -->
+
         <li class="nav-item">
           <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">contact</a>
         </li>
         <li class="nav-item">
           <a class="btn btn-secondary tombol1 btn-block" href="{{ __('register') }}">SINGUP</a>
@@ -150,6 +143,16 @@
         </div>
       </div>
     </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <!-- <img class="card-img-top" src="http://placehold.it/500x325" alt=""> -->
+        <div class="card-body">
+          <h4 class="card-title">Edmodo</h4>
+          <img src="{{ asset('/img/edmodo.jpg') }}" alt="Zoom">
+          <p> Edmodo adalah layanan kelas online asal California, AS. Walaupun belum banyak digunakan di Indonesia, Edmodo merupakan layanan yang cukup populer di Amerika Serikat.Aplikasi online ini sangat populer di kalangan guru karena dapat memudahkan pekerjaan mereka sehari-hari. Layanan seperti Edmodo sendiri dikenal dengan nama Learning Management System (LMS).</p>
+        </div>
+      </div>
+    </div>
 
 
   </div>
@@ -187,15 +190,80 @@
         </div>
       </section>
 <!-- akhir testimoni -->
+ <!-- Contact-->
+ <!-- Call to action-->
+ <section class="contact">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 id="contact">Contact us</h2>
+                        <hr class="divider light my-4" />
+                        <h4>Email or Phone</h4>
+                        <p class="text-white-50 justify-content-center">
+                            Email:
+                            contact@ElStack.com
+                            <br>
+                            Phone:
+                            (0251) 8329101 <br>
+                            Alamat: Jl. Kumbang No.14, RT.02/RW.06, Babakan, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16128
+                        </p>
+                        <a class="btn btn-primary tombol2 btn-xl js-scroll-trigger" data-toggle="modal" data-target="#saran">Send Us!</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--MODALS-->
+               <!-- Modal -->
+                <div class="modal fade" id="saran" tabindex="-1" aria-labelledby="saran" aria-hidden="true">
+                  <div class="modal-dialog color">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="saran">Sends us an improvement</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body color">
+                        <form>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="yourmail@mail.com">
+                          </div>
+                          <div class="form-row mb-3">
+                            <div class="col">
+                              <input type="text" class="form-control" placeholder="First name">
+                            </div>
+                            <div class="col">
+                              <input type="text" class="form-control" placeholder="Last name">
+                            </div>
+                          </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="Your message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary tombol2">Submit</button>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-warning " data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+        </section>
 <!-- footer -->
-      <div class="row footer">
+      <!-- <div class="row footer bg-secondary">
           <div class="col text-center">
             <p>
               2020 All Right Reserved by Staterpack.
             </p>
           </div>
-      </div>
-
+      </div> -->
+      <footer class="py-3">
+            <div class="container">
+              <div class="medium text-center text-muted">2020 All Right Reserved by ElStack.</div>
+            </div>
+        </footer>
   </div>
 <!-- akhir container -->
 

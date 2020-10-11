@@ -154,6 +154,11 @@
 .testimoni figcaption{
     text-align: center;
 }
+/* contact */
+.contact h2 {
+    color: #365E7D;
+}
+/* footer */
 footer{
     margin-top: 100px;
 }
