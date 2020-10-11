@@ -48,6 +48,7 @@
                         <button type="submit" class="btn btn-danger ml-3">Delete</button>
                     </form>
                 @endhasrole
+                <a href="{{route('category.index')}}" class="btn btn-info btn-md secondary" role="button" aria-pressed="true">Kembali</a>
             </div>
         </div>
     </div>

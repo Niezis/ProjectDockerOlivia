@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="{{ url('/') }}">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{ url('/categories/index') }}">Home <span class="sr-only">(current)</span></a>
         </li>
 
         <li class="nav-item">
@@ -34,7 +34,7 @@
           <a class="nav-link" href="#contact">contact</a>
         </li>
         <li class="nav-item">
-          <a class="btn btn-secondary tombol1 btn-block" href="{{ __('register') }}">SINGUP</a>
+          <a class="btn btn-secondary tombol1 btn-block" href="{{ __('register') }}">SIGNUP</a>
         </li>
         <li class="nav-item">
           <a class="btn  btn-primary tombol2 btn-block" href="{{ route('login') }}">LOGIN</a>
@@ -50,7 +50,7 @@
   <div class="container">
     <h1 class="display-4">Stay <span>Safe</span> and Stay  <span>Productive</span><br>
       Work from  <span>Home</span> or Study online.</h1>
-      <a href="{{ __('Register') }}" class="btn btn-secondary tombol1"> SINGUP</a>
+      <a href="{{ __('Register') }}" class="btn btn-secondary tombol1"> SIGNUP</a>
   </div>
 </div>
 <!-- akhir jumbotron -->
