@@ -7,11 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<<<<<<< HEAD
-    <title>Elstack</title>
-=======
     <title>Elearning Starterpack</title>
->>>>>>> 97cc91d7177972548dd9d78d215e3cbb42b75a4e
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -35,11 +31,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-<<<<<<< HEAD
-                    ELSTACK
-=======
                 ElStack
->>>>>>> 97cc91d7177972548dd9d78d215e3cbb42b75a4e
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
