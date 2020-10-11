@@ -50,7 +50,7 @@
   <div class="container">
     <h1 class="display-4">Stay <span>Safe</span> and Stay  <span>Productive</span><br>
       Work from  <span>Home</span> or Study online.</h1>
-      <a href="{{ __('Register') }}" class="btn btn-secondary tombol1"> SIGNUP</a>
+      <a href="{{ __('register') }}" class="btn btn-secondary tombol1"> SIGNUP</a>
   </div>
 </div>
 <!-- akhir jumbotron -->
