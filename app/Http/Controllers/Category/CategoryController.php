@@ -25,9 +25,8 @@ class CategoryController extends Controller
 
     public function search(Request $request)
     {
-        dd($request->search);
-        // $nilai = Category::where('name' => "%$request%");
-        $categories = Category::simplePaginate();
+
+        $categories = Category::where("category","like","%$request->search%")->simplePaginate(1);
         return view('category.index',compact('categories'));
     }
 
