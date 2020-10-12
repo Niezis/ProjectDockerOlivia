@@ -51,7 +51,16 @@
     <h1 class="display-4">Stay <span>Safe</span> and Stay  <span>Productive</span><br>
       Work from  <span>Home</span> or Study online.</h1>
       <a href="{{ __('register') }}" class="btn btn-secondary tombol1"> SIGNUP</a>
-  </div>
+    </div>
+    @if (session('success'))
+        <div class="alert alert-success" role="alert">
+            {{ session('success') }}
+        </div>
+    @elseif (session('danger'))
+        <div class="alert alert-danger" role="alert">
+            {{ session('danger') }}
+        </div>
+    @endif
 </div>
 <!-- akhir jumbotron -->
 <!-- container -->
@@ -224,21 +233,55 @@
                         </button>
                       </div>
                       <div class="modal-body color">
-                        <form>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">Email</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="yourmail@mail.com">
-                          </div>
-                          <div class="form-row mb-3">
-                            <div class="col">
-                              <input type="text" class="form-control" placeholder="First name">
+                        @if (session('success'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('success') }}
                             </div>
-                            <div class="col">
-                              <input type="text" class="form-control" placeholder="Last name">
+                        @elseif (session('danger'))
+                            <div class="alert alert-danger" role="alert">
+                                {{ session('danger') }}
                             </div>
-                          </div>
+                        @endif
+                        <form method="POST" action="/">
+                            @csrf
                             <div class="form-group">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="Your message"></textarea>
+                                <label for="email" class="col-sm col-form-label">{{ __('Alamat Email') }}</label>
+
+                                <div class="col-sm">
+                                    <input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"  autocomplete="email" autofocus>
+
+                                    @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name" class="col-sm col-form-label ">{{ __('Nama Lengkap') }}</label>
+
+                                <div class="col-sm">
+                                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}"  autocomplete="name" autofocus>
+
+                                    @error('name')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm col-form-label" for="message">{{ __('Pesan :') }}</label>
+
+                                <div class="col-sm">
+                                    <textarea id="message" placeholder="your message" class="form-control @error('message') is-invalid @enderror" name="message"  autocomplete="message"  rows="3" autofocus>{{ old('message') }}</textarea>
+
+                                    @error('message')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                             </div>
                             <button type="submit" class="btn btn-primary tombol2">Submit</button>
                         </form>
