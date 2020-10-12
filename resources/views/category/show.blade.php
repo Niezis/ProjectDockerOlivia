@@ -19,7 +19,9 @@
                             <a href="/posts/{{$post->slug}}/show" class="list-group-item list-group-item-action list-group-item-secondary">{{ $post->name_video }}</a>
                         @endforeach
                     </div>
+                    <br>
                 </div>
+
                 @hasrole('admin')
                     <form class="m-2" action="{{ route('category.delete', ['category' => $categories->slug]) }}"
                         method="POST">
@@ -29,6 +31,8 @@
                         <button type="submit" class="btn btn-danger ml-3">Delete</button>
                     </form>
                 @endhasrole
+                <a href="{{route('category.index')}}" class="btn btn-info btn-md ml-2 secondary" role="button" aria-pressed="true">Kembali</a>
+
               </div>
         </div>
     </div>

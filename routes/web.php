@@ -50,7 +50,7 @@ Route::middleware(['auth',"role:admin"])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
 
-
+    Route::get('categories/index/search', 'Category\CategoryController@search')->name('category.search');
     Route::get('categories/index', 'Category\CategoryController@index')->name('category.index');
     Route::get('categories/{category}/show', 'Category\CategoryController@show')->name('category.show');
 

@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    padding: 0;
+  }
+.navbar{
+    position: relative;
+}
+.navbar-brand {
+    font-family: viga;
+    font-size: 32px;
+}
+
+/* utility */
+.tombol1{
+  text-transform: uppercase;
+  border-radius: 40px;
+  background-color: #F1166D;
+}
+.tombol2{
+  text-transform: uppercase;
+  border-radius: 40px;
+  background-color: #5191E3;
+  margin-top: 10px;
+}
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-image:url(../img/thought-catalog-505eectW54k-unsplash.jpg);
+    background-size: cover;
+    height: 100vh;
+  }
+.card{
+  background-color: rgba(0, 0, 0, 0.2);
+  color: white;
+  font-family: viga;
+  justify-content:center;
+}
+
+
+@media (min-width: 992px) {
+  .tombol2{
+    text-transform: uppercase;
+    border-radius: 40px;
+    background-color: #5191E3;
+    margin-top: auto;
+    margin-left: 10px;
+  }
+  .bg-dark{
+    background-color: transparent !important;
+}
+.navbar-brand, .nav-link{
+  color: white !important;
+  text-shadow: 1px 1px 1px rgba(0,0,0,1);
+}
+.nav-link{
+  text-transform: uppercase;
+  margin-right: 30px;
+}
+.nav-link:hover::after{
+content: '';
+display: block;
+border-bottom: 3px solid #5191E3;
+width: 50%;
+margin: auto;
+padding-bottom: 5px;
+margin-bottom: -8px;
+}
+
+  .nav-link{
+    text-transform: uppercase;
+    margin-right: 30px;
+    }
+
+}

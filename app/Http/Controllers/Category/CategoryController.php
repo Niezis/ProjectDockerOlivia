@@ -22,6 +22,14 @@ class CategoryController extends Controller
         return view('category.index',compact('categories'));
     }
 
+
+    public function search(Request $request)
+    {
+
+        $categories = Category::where("category","like","%$request->search%")->simplePaginate(1);
+        return view('category.index',compact('categories'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *

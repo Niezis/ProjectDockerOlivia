@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Learnig') }}</div>
+                <div class="card-header">{{ __('Tambah Video') }}</div>
 
                 <div class="card-body">
                     @if (session('success'))
@@ -120,7 +120,8 @@
                             </div>
                         </div>
 
-                        <div class="col-md-8 offset-md-4">
+                        <div class="offset-md-9">
+                            <a href="{{route('category.index')}}" class="btn btn-info btn-md secondary" role="button" aria-pressed="true">Kembali</a>
                             <button type="submit" class="btn btn-dark">
                                 {{ __('Submit') }}
                             </button>

@@ -1,100 +1,278 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Laravel</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- my fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Viga&display=swap" rel="stylesheet">
+    <!-- My CSS -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/landing.css') }}">
+    <title>Elearning Starterpack</title>
+  </head>
+  <body>
+<!-- Nav bar -->
+<nav class="navbar navbar-expand-lg navbar-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">ElStack</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('/categories/index') }}">Home <span class="sr-only">(current)</span></a>
+        </li>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-secondary tombol1 btn-block" href="{{ __('register') }}">SIGNUP</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn  btn-primary tombol2 btn-block" href="{{ route('login') }}">LOGIN</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<!-- akhir Navbar -->
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+<!-- Jumbotron -->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Stay <span>Safe</span> and Stay  <span>Productive</span><br>
+      Work from  <span>Home</span> or Study online.</h1>
+      <a href="{{ __('register') }}" class="btn btn-secondary tombol1"> SIGNUP</a>
+  </div>
+</div>
+<!-- akhir jumbotron -->
+<!-- container -->
+<!-- info panel -->
+  <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-10 info-panel">
+            <div class="row">
+              <div class="col-lg">
+                <img src="{{ asset('/img/youtube.png') }}" alt="youtube" class="float-left">
+                <h4>Video</h4>
+                <p>Belajar via video</p>
+              </div>
+              <div class="col-lg">
+                <img src="{{ asset('/img/free.png') }}" alt="Free" class="float-left">
+                <h4>Free</h4>
+                <p>Free Access Class</p>
+              </div>
+              <div class="col-lg">
+                <img src="{{ asset('/img/responsive-design.png') }}" alt="multi" class="float-left">
+                <h4>Multi Platfrom</h4>
+                <p>Access All Device</p>
+              </div>
             </div>
         </div>
-    </body>
-</html>
+      </div>
+    <!-- akhir info panel -->
+    <!-- WorkingSpace -->
+      <div class="row workingspace">
+        <div class="col-lg 6">
+          <img src="{{ asset('/img/zom.webp') }}" alt="workingSpace" class="img-fluid">
+        </div>
+        <div class="col-lg 5">
+          <h3>YOU <span>WORK</span> AND <span>STUDY</span>
+            AT <span>HOME</span></h3>
+            <p>
+              Belajar menggunakan kurikulum yang
+              telah divasilitasi industry IT diera Pandemi
+            </p>
+            <a href="" class="btn btn-primary tombol2">Check Now!</a>
+        </div>
+      </div>
+
+<!-- Akhir WorkingSpace -->
+<!-- card -->
+<section class="card1">
+  <div class="row text-center">
+
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <!-- <img class="card-img-top" src="http://placehold.it/500x325" alt=""> -->
+        <div class="card-body">
+          <h4 class="card-title">Google Meet</h4>
+         <img src="{{ asset('/img/meet_96dp.png') }}" alt="Zoom"><br>
+         <p>Google Meet adalah produk dari Google berupa layanan komunikasi video yang dikembangkan oleh Google.Aplikasi ini adalah salah satu aplikasi yang merupakan versi baru dari versi terdahulunya yaitu Google Hangouts dan Google Chat.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <!-- <img class="card-img-top" src="http://placehold.it/500x325" alt=""> -->
+        <div class="card-body">
+          <h4 class="card-title">Webex</h4>
+          <img src="{{ asset('/img/webex-logo.png') }}" alt="Zoom">
+         <p>Cisco Webex Meeting adalah aplikasi panggilan video yang bisa digunakan untuk pertemuan online perusahaan di masa pandemi seperti sekarang ini.Selain itu, Webex juga memiliki deteksi kebisingan dan saran bisu yang dapat digunakan untuk melakukan panggilan video dengan lebih sedikit gangguan.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <!-- <img class="card-img-top" src="http://placehold.it/500x325" alt=""> -->
+        <div class="card-body">
+          <h4 class="card-title">Zoom</h4>
+          <img src="{{ asset('/img/Zoom-App-Icon-2.png') }}" alt="Zoom">
+         <p>Zoom merupakan salah satu aplikasi komunikasi dengan menggunakan video conference.Aplikasi tersebut dapat digunakan dalam berbagai perangkat seluler dan desktop.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <!-- <img class="card-img-top" src="http://placehold.it/500x325" alt=""> -->
+        <div class="card-body">
+          <h4 class="card-title">Google Clasroom</h4>
+          <img src="{{ asset('/img/Google-Classroom-Logo1-1.webp') }}" alt="Zoom">
+          <p>Google Classroom memungkinkan kegiatan belajar mengajar menjadi lebih produktif dan bermakna dengan menyederhanakan tugas, meningkatkan kolaborasi, dan membina komunikasi. Pengajar dapat membuat kelas, memberikan tugas, mengirim masukan, dan melihat semuanya di satu tempat.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-6 mb-4">
+      <div class="card h-100">
+        <!-- <img class="card-img-top" src="http://placehold.it/500x325" alt=""> -->
+        <div class="card-body">
+          <h4 class="card-title">Edmodo</h4>
+          <img src="{{ asset('/img/edmodo.jpg') }}" alt="Zoom">
+          <p> Edmodo adalah layanan kelas online asal California, AS. Walaupun belum banyak digunakan di Indonesia, Edmodo merupakan layanan yang cukup populer di Amerika Serikat.Aplikasi online ini sangat populer di kalangan guru karena dapat memudahkan pekerjaan mereka sehari-hari. Layanan seperti Edmodo sendiri dikenal dengan nama Learning Management System (LMS).</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>
+<!-- akhir card -->
+<!-- Testimonial -->
+
+      <section class="testimoni">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <h5 id="about">
+                "Terima kasih untuk Starterpack karena di sini saya banyak sekali belajar
+                cara menggunakan aplikasi video conference dan
+                tutorialnya juga mudah dimengerti."
+            </h5>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-6 justify-content-center d-flex">
+            <figure class="figure">
+              <img src="{{ asset('/img/dms.jpg') }}" class="figure-img img-fluid rounded-circle" alt="testi2">
+            </figure>
+            <figure class="figure">
+              <img src="{{ asset('/img/q.png') }}" class="figure-img utama img-fluid rounded-circle" alt="testi1">
+              <figcaption class="figure-caption">
+                <h5>Gifar M Nadiv</h5>
+                <p>Siswa SMAN5 Bogor</p>
+              </figcaption>
+            </figure>
+            <figure class="figure">
+              <img src="{{ asset('/img/jalu.jpg') }}" class="figure-img img-fluid rounded-circle" alt="testi2">
+            </figure>
+
+          </div>
+        </div>
+      </section>
+<!-- akhir testimoni -->
+ <!-- Contact-->
+ <!-- Call to action-->
+ <section class="contact">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 text-center">
+                        <h2 id="contact">Contact us</h2>
+                        <hr class="divider light my-4" />
+                        <h4>Email or Phone</h4>
+                        <p class="text-white-50 justify-content-center">
+                            Email:
+                            contact@ElStack.com
+                            <br>
+                            Phone:
+                            (0251) 8329101 <br>
+                            Alamat: Jl. Kumbang No.14, RT.02/RW.06, Babakan, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat 16128
+                        </p>
+                        <a class="btn btn-primary tombol2 btn-xl js-scroll-trigger" data-toggle="modal" data-target="#saran">Send Us!</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--MODALS-->
+               <!-- Modal -->
+                <div class="modal fade" id="saran" tabindex="-1" aria-labelledby="saran" aria-hidden="true">
+                  <div class="modal-dialog color">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="saran">Sends us an improvement</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body color">
+                        <form>
+                          <div class="form-group">
+                            <label for="exampleInputEmail1">Email</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="yourmail@mail.com">
+                          </div>
+                          <div class="form-row mb-3">
+                            <div class="col">
+                              <input type="text" class="form-control" placeholder="First name">
+                            </div>
+                            <div class="col">
+                              <input type="text" class="form-control" placeholder="Last name">
+                            </div>
+                          </div>
+                            <div class="form-group">
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"placeholder="Your message"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary tombol2">Submit</button>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-warning " data-dismiss="modal">Close</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+        </section>
+<!-- footer -->
+      <!-- <div class="row footer bg-secondary">
+          <div class="col text-center">
+            <p>
+              2020 All Right Reserved by Staterpack.
+            </p>
+          </div>
+      </div> -->
+      <footer class="py-3">
+            <div class="container">
+              <div class="medium text-center text-muted">2020 All Right Reserved by ElStack.</div>
+            </div>
+        </footer>
+  </div>
+<!-- akhir container -->
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html
+>
