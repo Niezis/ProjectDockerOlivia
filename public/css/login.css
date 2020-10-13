@@ -66,10 +66,14 @@ margin: auto;
 padding-bottom: 5px;
 margin-bottom: -8px;
 }
-
   .nav-link{
     text-transform: uppercase;
     margin-right: 30px;
+    }
+
+    .cardbutton{
+      margin-left: -570px;
+      margin-top: 540px;
     }
 
 }

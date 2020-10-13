@@ -4,6 +4,9 @@
 <form class="form-inline" action="{{route('category.search')}}">
     <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search" aria-label="Search">
 </form>
+@hasrole('admin')
+<a href="{{ route('category.create') }}" class="btn btn-primary btn-md">Create</a>
+@endhasrole
 @endsection
 
 @section('content')

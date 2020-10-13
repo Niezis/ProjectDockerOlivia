@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center" >
+    <div class="row justify-content-start" >
         <div class="col-md-6 ">
             <div class="card mb-3 " style="width: 683px;">
                 <div class="card-header">
@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 cardbutton">
             <div class="card mb-3 " style="width: 200px;">
                 <div class="card-footer">
                     @foreach ($category->posts as $post)
@@ -47,6 +47,7 @@
                         <a href="{{route('post.edit',['post'=> $post->slug])}}" class="btn btn-info btn-md active" role="button" aria-pressed="true">Edit</a>
                         <button type="submit" class="btn btn-danger ml-3">Delete</button>
                     </form>
+                    <a href="{{ route('post.create') }}" class="btn btn-primary btn-md">Create</a>
                 @endhasrole
                 <a href="{{route('category.index')}}" class="btn btn-info btn-md secondary" role="button" aria-pressed="true">Kembali</a>
             </div>
