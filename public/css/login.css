@@ -36,9 +36,21 @@
   font-family: viga;
   justify-content:center;
 }
-
-
-@media (min-width: 992px) {
+.cardbutton{
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.yutub{
+  width: 400px;
+}
+.yutub video{
+  width: 350px;
+}
+.yutub iframe{
+  width:350px;
+  height:200px;
+}
+@media (min-width: 1080px) {
   .tombol2{
     text-transform: uppercase;
     border-radius: 40px;
@@ -75,5 +87,20 @@ margin-bottom: -8px;
       margin-left: -570px;
       margin-top: 540px;
     }
-
+ .yutub{
+  width: 683px;
+ }
+ .yutub iframe{
+  width:683px;
+  height:384px;
 }
+}
+@media (min-width: 768px) and (max-width: 991.98px) { 
+  .cardbutton{
+    margin-left: -370px;
+    margin-top: 380px;
+ }
+
+ }
+  
+

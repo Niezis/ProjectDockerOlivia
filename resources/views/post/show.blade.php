@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-start" >
         <div class="col-md-6 ">
-            <div class="card mb-3 " style="width: 683px;">
+            <div class="card mb-3 yutub">
                 <div class="card-header">
                     {{ $category->category }}
 
@@ -13,9 +13,7 @@
                     <source src="{{ asset("storage/".$post->video) }}" type="video/mp4">
                 </video> --}}
 
-                <iframe id="existing-iframe-example"
-                width="683" height="384"
-
+                <iframe 
                 @if ($post->start)
                     src="https://www.youtube.com/embed/{{ $link }}?start={{$post->start}}&end={{$post->end}}"
                 @else
