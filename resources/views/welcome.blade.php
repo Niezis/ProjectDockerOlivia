@@ -98,7 +98,7 @@
             AT <span>HOME</span></h3>
             <p>
               Belajar menggunakan kurikulum yang
-              telah divasilitasi industry IT diera Pandemi
+              telah difasilitasi industry IT di era Pandemi
             </p>
             <a href="" class="btn btn-primary tombol2">Check Now!</a>
         </div>
