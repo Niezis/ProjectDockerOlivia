@@ -1,0 +1,60 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: web.dockerfile
+    volumes:
+      - ./:/var/www
+    restart: always
+    ports:
+      - "8081:80"
+    links:
+      - app
+    networks: 
+      - laravel_network
+  app:
+    build:
+      context: ./
+      dockerfile: app.dockerfile
+    volumes:
+      - ./:/var/www
+    depends_on:
+     - database
+     - cache
+    restart: always
+    links:
+      - database
+    environment:
+      - "DB_PORT=3306"
+      - "DB_HOST=database"
+      - "REDIS_HOST=redis"
+      - "REDIS_PORT=6379"
+    networks: 
+      - laravel_network
+  
+  database:
+    image: mysql:latest
+    hostname: database
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    environment:
+        MYSQL_ROOT_PASSWORD: secret
+        MYSQL_DATABASE: learnolivia
+    ports:
+        - "33062:33061"
+    networks: 
+      - laravel_network
+
+  cache:
+    image: redis:latest
+    ports: 
+      - "63790:63791"
+    volumes:
+      - ./redis:/data
+    networks: 
+      - laravel_network
+networks:
+  laravel_network:
+    name: laravel_network
